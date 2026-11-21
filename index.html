@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0E0C12">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js">
+<meta name="robots" content="noindex">
+<title>Il baule di dicembre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;600&family=Kalam:wght@400;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!--CONTENT-START-->
+<canvas id="cielo" aria-label="Il calendario in 3D: ventiquattro regali, uno per ogni giorno di dicembre"></canvas>
+
+<div class="hud" id="hud" hidden>
+  <header class="top">
+    <div class="top-row">
+      <p class="eyebrow" id="eyebrow">Dicembre</p>
+      <button class="pill" id="btn-finale" type="button" hidden>Rivedi il finale</button>
+    </div>
+    <h1 class="title" id="titolo">Il baule</h1>
+    <p class="sub" id="sub"></p>
+    <div class="dots" id="dots" aria-hidden="true"></div>
+    <p class="rule" id="rule"></p>
+  </header>
+  <footer class="bottom">
+    <div class="replay" id="replay" hidden>
+      <label class="promise" id="replay-label" for="replay-check">
+        <input type="checkbox" id="replay-check">
+        <span class="promise-box" aria-hidden="true"></span>
+        <span class="promise-text">Ora che il calendario è finito, puoi rivivere tutte le emozioni.</span>
+      </label>
+      <button class="btn ink" id="btn-replay" type="button" hidden>Ricomincia da capo</button>
+    </div>
+    <p class="preview" id="preview" hidden><span id="preview-text"></span> <button class="link" id="btn-reset" type="button">Azzera</button></p>
+    <p class="hint" id="hint"></p>
+  </footer>
+</div>
+
+<section class="intro" id="intro">
+  <p class="eyebrow" id="intro-eyebrow">Calendario dell'avvento</p>
+  <h2 class="intro-title" id="intro-title">Ciao</h2>
+  <p class="intro-sub" id="intro-sub"></p>
+  <div class="promise-card">
+    <p class="eyebrow">Modulo di accesso al baule</p>
+    <label class="promise" id="promise-label" for="promise">
+      <input type="checkbox" id="promise">
+      <span class="promise-box" aria-hidden="true"></span>
+      <span class="promise-text" id="promise-text">Io prometto di non arrabbiarmi.</span>
+    </label>
+    <p class="promise-small">Firmando accetti tutto quello che troverai nel baule, nessuno escluso.</p>
+    <p class="promise-err" id="promise-err" role="alert" hidden></p>
+  </div>
+  <button class="btn paper" id="btn-enter" type="button">Entra</button>
+  <p class="intro-error" id="intro-error" hidden>Questo telefono non riesce a mostrare il 3D. Prova ad aprire il sito con Chrome o Safari aggiornati.</p>
+</section>
+
+<section class="sheet" id="sheet" aria-hidden="true">
+  <span class="tape" aria-hidden="true"></span>
+  <button class="close" id="btn-close" type="button" aria-label="Chiudi">×</button>
+  <div id="sheet-body"></div>
+</section>
+
+<section class="finale" id="finale" hidden>
+  <p class="eyebrow">24 dicembre</p>
+  <p class="finale-text" id="finale-text"></p>
+  <button class="btn ghost" id="btn-back" type="button">Torna al baule</button>
+</section>
+
+<div class="alert" id="alert" role="alertdialog" aria-labelledby="alert-text" hidden>
+  <div class="alert-tape" aria-hidden="true"></div>
+  <div class="alert-body">
+    <p class="eyebrow" id="alert-eyebrow">Attenzione</p>
+    <p class="alert-text" id="alert-text"></p>
+    <p class="alert-sub" id="alert-sub"></p>
+    <button class="btn ink" id="btn-alert" type="button">Ok, posso aprire</button>
+  </div>
+  <div class="alert-tape" aria-hidden="true"></div>
+</div>
+
+<div class="prank" id="prank" role="alertdialog" aria-label="Scherzo" hidden></div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<div class="lightbox" id="lightbox" hidden>
+  <img id="lightbox-img" alt="La foto della polaroid">
+  <p class="lightbox-hint">Tocca per chiudere</p>
+</div>
+<!--CONTENT-END-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
